@@ -61,9 +61,9 @@ resultText = resultText \
 f= open(resultspath,"w+")
 
 # write the results in a file
-f.write(line1)
+f.write(resultText)
 f.close
 
 # print the results on screen
-print(line1)
+print(resultText)
 print("\n Output File Name: " + resultspath + "\n")

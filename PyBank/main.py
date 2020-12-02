@@ -33,6 +33,8 @@ with open(csvpath, encoding="utf8") as csvfile:
     # Read the header row first (skip this step if there is now header)
     first_row = next(csvreader)
     previous = int(first_row[1])
+    total = previous
+    totalmonths = 1
 
     for row in csvreader:
         # increment total months
@@ -56,16 +58,16 @@ with open(csvpath, encoding="utf8") as csvfile:
 
 
 #run avechg formula
-aveChg = totChange/totalmonths
+aveChg = totChange/(totalmonths - 1)
 
 # load the result text in a variable
-line1 = "\n Financial Analysis " \
-        + "\n ----------------------------" \
-        + "\n Total Months: " + str(totalmonths) \
-        + "\n Total: " + str(total) \
-        + "\n Average  Change: $ " + str(round(aveChg,2)) \
-        + "\n Greatest Increase in Profits: " + greatestInc[0]+ " $(" + greatestInc[1] + ")" \
-        + "\n Greatest Decrease in Profits: " +greatestDec[0]+ " $(" + greatestDec[1] + ")"
+line1 = "\nFinancial Analysis " \
+        + "\n----------------------------" \
+        + "\nTotal Months: " + str(totalmonths) \
+        + "\nTotal: $" + str(total) \
+        + "\nAverage  Change: $ " + str(round(aveChg,2)) \
+        + "\nGreatest Increase in Profits: " + greatestInc[0]+ " ($" + greatestInc[1] + ")" \
+        + "\nGreatest Decrease in Profits: " +greatestDec[0]+ " ($" + greatestDec[1] + ")"
 
 # create the results file
 f= open(resultspath,"w+")
