@@ -8,7 +8,7 @@ dt_string = now.strftime("%Y%m%d%H%M%S")
 
 # get the resource file based on the PWD
 csvName = "budget_data.csv"
-resultsName = "ANALYSIS_" + csvName + "_" + dt_string + ".txt"
+resultsName = "ANALYSIS_PyBank_" + csvName + "_" + dt_string + ".txt"
 
 # Init results variable
 totalmonths=0
@@ -21,6 +21,8 @@ greatestDec=['',0]
 
 csvpath = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'Resources', csvName)
 resultspath = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'analysis', resultsName)
+
+print(f"Input File Name: {csvpath}")
 
 # Method 2: Improved Reading using CSV module
 with open(csvpath, encoding="utf8") as csvfile:
@@ -78,4 +80,4 @@ f.close
 
 # print the results on screen
 print(line1)
-print("\n Output File Name: " + resultspath + "\n")
+print("\nOutput File Name: " + resultspath + "\n")

@@ -8,16 +8,18 @@ dt_string = now.strftime("%Y%m%d%H%M%S")
 
 # get the resource file based on the PWD
 csvName = "election_data.csv"
-resultsName = "ANALYSIS_" + csvName + "_" + dt_string + ".txt"
+resultsName = "ANALYSIS_PyPoll_" + csvName + "_" + dt_string + ".txt"
 
 # Init results variable
 totalvotes=0
 candidate=[]
 voteCount=[]
 
-
+# initialise file paths
 csvpath = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'Resources', csvName)
 resultspath = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'analysis', resultsName)
+
+print(f"Input file: {csvpath}")
 
 with open(csvpath, encoding="utf8") as csvfile:
     # CSV reader specifies delimiter and variable that holds contents
@@ -41,7 +43,7 @@ with open(csvpath, encoding="utf8") as csvfile:
             voteCount.append(1)
 
 # build result text header
-resultText = "Election Results " \
+resultText = "\nElection Results " \
     + "\n-------------------------" \
     + "\nTotal Votes: " + str(totalvotes) \
     + "\n-------------------------\n"
